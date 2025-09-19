@@ -1,5 +1,5 @@
 body {
-    background: #111;
+    background: #f7f7f7;
     color: #eee;
     font-family: 'Noto Sans TC', '微軟正黑體', Arial, sans-serif;
     margin: 0;
@@ -10,7 +10,7 @@ body {
 .container {
     max-width: 600px;
     margin: 40px auto;
-    background: rgba(30, 30, 30, 0.95);
+    background: rgba(222, 220, 220, 0.95);
     border-radius: 12px;
     box-shadow: 0 0 30px 5px #000;
     padding: 32px 24px;
@@ -19,11 +19,10 @@ body {
 h1 {
     font-family: 'Creepster', cursive, 'Noto Sans TC', sans-serif;
     font-size: 2.8em;
-    color: #ff4444;
+    color: #000000;
     text-align: center;
     margin-bottom: 0.2em;
     letter-spacing: 2px;
-    text-shadow: 0 0 8px #900, 0 0 2px #fff;
 }
 
 .subtitle {
@@ -42,6 +41,7 @@ h1 {
     box-shadow: 0 2px 12px #222 inset;
     transition: background 0.3s;
 }
+
 .story:hover {
     background: #222;
 }
@@ -52,11 +52,13 @@ h1 {
     font-size: 1.3em;
     letter-spacing: 1px;
 }
+
 .story p {
     color: #eee;
     margin-bottom: 0;
     line-height: 1.7;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -68,16 +70,81 @@ body {
     /* 讓整個區塊置中 */
 }
 
-#banner{width: 800px;background-color: rgb(164, 239, 214,0.5);height: 150px;position: fixed;}
+#banner {
+    width: 800px;
+    background-color: rgb(164, 239, 214, 0.5);
+    height: 150px;
+    position: fixed;
+}
+
 /* 0.5為透明度 */
-#banner-placeholder{height: 150px;}
+#banner-placeholder {
+    height: 150px;
+}
+
 /* 上面那行 用一個假的banner 讓下方的nav content不會被banner擋住 */
-#nav{width: 100px;background-color: rgb(238, 181, 181);float: left;position: fixed;}
-#nav-placeholder{width: 100px;height: 600px;float: left;}
+#nav {
+    width: 100px;
+    background-color: rgb(238, 181, 181);
+    float: left;
+    position: fixed;
+}
+
+#nav-placeholder {
+    width: 100px;
+    height: 600px;
+    float: left;
+}
+
+#nav ul {
+    padding-left: 0;
+    margin: 0;
+}
+
 /* 寬度要跟nav依樣 才能把content往右邊擠 才不會讓content壓在nav下面 因為有設float:left 區塊會自動往左邊擠 */
-#content{width: 600px;background-color: bisque;float: left;}
-#supporting{width: 100px;background-color: rgb(171, 171, 233);float: left;}
-#footer{width: 800px;background-color: rgb(230, 194, 148);clear: both;}
+#content {
+    width: 600px;
+    background-color: bisque;
+    float: left;
+}
+
+#supporting {
+    width: 100px;
+    background-color: rgb(171, 171, 233);
+    float: left;
+}
+
+#footer {
+    width: 800px;
+    background-color: rgb(230, 194, 148);
+    clear: both;
+}
+
+li:hover {
+    background-color: pink;
+}
+
+.text-container {
+    padding: 5px;
+}
+
+section{
+    padding-top: 150px;
+    margin-top: -150px;
+		/* scroll-margin-top: 100px;  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* clear:both使兩側都不會有東西 */
 
 
