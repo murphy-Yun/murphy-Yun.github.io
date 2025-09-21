@@ -1,5 +1,5 @@
 body {
-    background: #f7f7f7;
+    background: white; /* 改為白色背景 */
     color: #eee;
     font-family: 'Noto Sans TC', '微軟正黑體', Arial, sans-serif;
     margin: 0;
@@ -106,7 +106,7 @@ body {
 #nav {
     min-width: 150px; /* 使用 min-width 而不是固定 width */
     flex-shrink: 0; /* 防止 nav 被壓縮太小 */
-    background-color: lightgray; /* 改為和 li 一樣的淺灰色 */
+    background-color: white; /* 改為白色 */
     position: fixed;
     /* 計算左邊位置來配合置中的容器 */
     left: 50%;
