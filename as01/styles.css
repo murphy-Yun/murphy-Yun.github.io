@@ -18,11 +18,18 @@ body {
 
 h1 {
     font-family: 'Creepster', cursive, 'Noto Sans TC', sans-serif;
-    font-size: 2.8em;
+    font-size: 1.5em;
     color: #000000;
     text-align: center;
     margin-bottom: 0.2em;
     letter-spacing: 2px;
+}
+
+/* Banner 內的 h1 特別樣式 */
+#banner h1 {
+    font-size: 3em; /* 比一般 h1 更大 */
+    margin: 0;
+    padding: 20px 0;
 }
 
 .subtitle {
@@ -65,16 +72,23 @@ body {
 }
 
 #wrapper {
-    width: 800px;
+    max-width: 800px; /* 改為 max-width，允許在小螢幕時縮小 */
+    width: 100%; /* 在小螢幕時使用全寬 */
     margin: 0 auto;
     /* 讓整個區塊置中 */
+    display: flex;
+    flex-direction: column;
 }
 
 #banner {
-    width: 800px;
+    width: 100%;
+    max-width: 800px; /* 設定最大寬度 */
     background-color: rgb(164, 239, 214, 0.5);
     height: 150px;
     position: fixed;
+    left: 50%; /* 水平置中 */
+    transform: translateX(-50%); /* 完美置中 */
+    top: 0; /* 確保在頂部 */
 }
 
 /* 0.5為透明度 */
@@ -83,17 +97,29 @@ body {
 }
 
 /* 上面那行 用一個假的banner 讓下方的nav content不會被banner擋住 */
+
+/* 新增 flex 容器來包含三個主要區塊 */
+.main-content {
+    display: flex;
+}
+
 #nav {
-    width: 100px;
-    background-color: rgb(238, 181, 181);
-    float: left;
+    min-width: 150px; /* 使用 min-width 而不是固定 width */
+    flex-shrink: 0; /* 防止 nav 被壓縮太小 */
+    background-color: lightgray; /* 改為和 li 一樣的淺灰色 */
     position: fixed;
+    /* 計算左邊位置來配合置中的容器 */
+    left: 50%;
+    transform: translateX(-400px); /* 向左移動容器寬度的一半 (800px/2) */
+    top: 150px; /* 在 banner 下方 */
+    /* 移除 float: left */
 }
 
 #nav-placeholder {
-    width: 100px;
+    min-width: 150px; /* 同樣使用 min-width */
+    flex-shrink: 0; /* 防止被壓縮 */
     height: 600px;
-    float: left;
+    /* 移除 float: left */
 }
 
 #nav ul {
@@ -101,23 +127,49 @@ body {
     margin: 0;
 }
 
-/* 寬度要跟nav依樣 才能把content往右邊擠 才不會讓content壓在nav下面 因為有設float:left 區塊會自動往左邊擠 */
+/* 新增的導航選單樣式 */
+ul {
+    padding-left: 0;
+}
+
+li {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: lightgray;
+}
+
+li:hover {
+    background-color: pink;
+}
+
+ul a {
+    text-decoration: none;
+}
+
+/* 使用 flex: 1 讓 content 自動使用剩餘空間 */
 #content {
-    width: 600px;
+    flex: 1;
     background-color: bisque;
-    float: left;
+    /* 移除 width: 600px 和 float: left */
 }
 
 #supporting {
-    width: 100px;
+    /* 讓寬度完全根據內容決定 */
+    width: auto;
+    flex: none; /* 不參與 flex 空間分配 */
     background-color: rgb(171, 171, 233);
-    float: left;
+    /* 移除 float: left */
+    align-self: flex-start;
+    /* 讓 supporting 只佔用它需要的高度，不拉伸 */
+    padding: 10px; /* 添加一些內邊距 */
+    white-space: nowrap; /* 防止文字換行，強制保持最小寬度 */
 }
 
 #footer {
-    width: 800px;
+    width: 100%; /* 改為 100% 而不是固定 800px */
     background-color: rgb(230, 194, 148);
-    clear: both;
+    /* 移除 clear: both，因為不再使用 float */
 }
 
 li:hover {
@@ -126,6 +178,12 @@ li:hover {
 
 .text-container {
     padding: 5px;
+}
+
+section{
+    padding-top: 150px;
+    margin-top: -150px;
+		/* scroll-margin-top: 100px;  */
 }
 
 section{
