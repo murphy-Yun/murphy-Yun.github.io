@@ -1,325 +1,81 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>陶藝作法介紹</title>
-<style>
-:root{
-  --nav-height:50px;
-}
-html,body{
-  margin:0;
-  padding:0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-
-/* 頂端 banner */
-#top-banner{
-  width:100%;
-  height:150px;
-  background: #1a4f8b; 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:32px;
-  font-weight:bold;
-  box-sizing:border-box;
-}
-
-/* 導覽列 */
-nav{
-  width:100%;
-  height:var(--nav-height);
-  background:#e0e0e0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  box-sizing:border-box;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-
-.nav-left{
-  display:flex;
-  align-items:center;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.nav-btn{
-  background:none;
-  border:none;
-  font-size:16px;
-  cursor:pointer;
-  padding:8px 6px;
-}
-
-.home{ color: #000; font-weight:bold;}
-.other{ color: #7d7d7d; }
-.nav-btn:hover{ color: #000; font-weight:bold; }
-
-/* 導覽列下方白色區塊 */
-.nav-separator{
-  width:100%;
-  height:var(--nav-height);
-  background:#ffffff;
-}
-
-/* 各區段 banner */
-.section-banner{
-  width:100%;
-  height:300px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:bold;
-  color:white;
-  box-sizing:border-box;
-}
-
-/* 區段內容區塊 */
-.section-content{
-  width:100%;
-  min-height:600px;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding-top:40px;
-  box-sizing:border-box;
-  flex-direction:column;
-  text-align:center;
-}
-
-.section-content img{
-  display:block;
-  margin:16px auto 32px auto;
-  height:auto;
-  border-radius:8px;
-}
-
-/* 所有圖片大小統一 */
-#section1-content img,
-#section2-content img,
-#section3-content img{
-  max-width:60%;
-}
-
-/* 文字區塊 */
-.center-rect{
-  width:30%;
-  min-width:160px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  box-sizing:border-box;
-  border-radius:8px;
-  padding:16px;
-  background: rgba(255,255,255,0.9); 
-  margin:auto;
-  text-align:left;
-}
-
-.center-rect h3{
-  font-size:20px;
-  font-weight:bold;
-  margin:0 0 8px 0;
-}
-
-.center-rect p{
-  font-size:14px;
-  margin:0;
-  line-height:1.5;
-}
-
-.separator{
-  width:100%;
-  height:100px;
-  background:#ffffff;
-}
-
-#section1-banner{ background: #1a75d2; }
-#section1-content{ background: #cce0ff; }
-
-#section2-banner{ background: #1a75d2; }
-#section2-content{ background: #cce0ff; }
-
-#section3-banner{ background: #1a75d2; }
-#section3-content{ background: #cce0ff; }
-
-/* footer */
-footer{
-  width:100%;
-  height:50px;
-  background:#ffffff;
-}
-
-/* 漢堡選單 */
-.menu-toggle{
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-}
-.menu-toggle span{
-  height:3px;
-  width:25px;
-  background:black;
-  margin:4px 0;
-}
-ul.mobile-menu{
-  display:none;
-  position:absolute;
-  top:var(--nav-height);
-  right:0; 
-  width:180px;
-  flex-direction:column;
-  background:#e0e0e0;
-  padding:0;
-  margin:0;
-  list-style:none;
-  border:1px solid #ccc;
-}
-ul.mobile-menu.show{ display:flex; }
-ul.mobile-menu li button{
-  width:100%;
-  text-align:left;
-  padding:12px 16px;
-  background:none;
-  border:none;
-  font-size:16px;
-  cursor:pointer;
-  color:black;
-}
-
-/* 響應式 */
-@media (max-width:768px){
-  .nav-right{ display:none; } 
-  .menu-toggle{ display:flex; } 
-}
-@media (max-width:480px){
-  #top-banner{ font-size:24px; }
-  .center-rect{ width:70%; }
-  .section-content img{ max-width:80%; }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AS02 — 練習頁面</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 0; line-height: 1.6; color: #222; }
+    header { text-align: center; }
+    nav { background: #f5f5f5; padding: 10px; text-align: center; }
+    nav a { margin: 0 10px; text-decoration: none; color: #0066cc; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .banner { width: 100%; height: auto; display: block; }
+    .container { max-width: 900px; margin: 28px auto; padding: 0 16px; }
+    h1 { margin-top: 20px; }
+    p.lead { font-size: 1.05rem; color: #444; }
+    section { margin-bottom: 50px; }
+    section img { margin: 16px auto; border-radius: 8px; max-width: 100%; height: auto; display: block; }
+    footer { text-align: center; margin: 40px 0; color: #666; font-size: 0.9rem; }
+  </style>
 </head>
 <body>
+  <header>
+    <img class="banner" src="https://fastly.picsum.photos/id/851/1200/400.jpg?hmac=IQ_1MVxt69zpsA4K1lZQ4TLs6HbLww2jcQuBJHA39OM" alt="橫幅圖">
+  </header>
 
-<header id="top-banner">陶土作法介紹</header>
+  <!-- 導覽列 -->
+  <nav>
+    <a href="#part1">探索日常的角落</a>
+    <a href="#part2">建立在地的連結</a>
+    <a href="#part3">旅行的心靈收穫</a>
+  </nav>
 
-<nav id="main-nav">
-  <div class="nav-left">
-    <button class="nav-btn home" data-target="top-banner">首頁</button>
-    <div class="nav-right">
-      <button class="nav-btn other" data-target="section1-banner">土片成形法</button>
-      <button class="nav-btn other" data-target="section2-banner">拉坯法</button>
-      <button class="nav-btn other" data-target="section3-banner">壓模法</button>
-    </div>
-  </div>
+  <main class="container">
+    <h1>城市微旅行：在熟悉中發現新鮮</h1>
+    <p class="lead">
+      不需要長途跋涉，也能從日常中獲得旅行的感動。城市微旅行強調利用既有環境，重新感受生活的細節，讓我們在熟悉的街道中找到新的驚喜。
+    </p>
 
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul class="mobile-menu" id="mobile-menu">
-    <li><button class="nav-btn other" data-target="section1-banner">土片成形法</button></li>
-    <li><button class="nav-btn other" data-target="section2-banner">拉坯法</button></li>
-    <li><button class="nav-btn other" data-target="section3-banner">壓模法</button></li>
-  </ul>
-</nav>
+    <!-- 區塊一 -->
+    <section id="part1">
+      <h2>探索日常的角落</h2>
+      <p>
+        很多時候，我們走在一條街上，卻對身邊的事物視而不見。城市微旅行鼓勵人們放慢腳步，試著抬頭看看牆上的老招牌，或蹲下欣賞小巷角落的植物。這些細節雖然日常，卻能讓人感受到城市獨特的生命力。
+      </p>
+      <p>
+        你可以嘗試設定簡單的任務，例如「今天要拍攝五個讓我感到驚喜的場景」，或是「刻意走一條平常不會選的路」。這樣的挑戰能讓人重新認識熟悉的環境，並激發觀察力。
+      </p>
+      <img src="https://images.unsplash.com/photo-1482398650355-d4c6462afa0e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZXhwbG9yZXxlbnwwfHwwfHx8MA%3D%3D" alt="探索日常的角落">
+    </section>
 
-<div class="nav-separator"></div>
+    <!-- 區塊二 -->
+    <section id="part2">
+      <h2>建立在地的連結</h2>
+      <p>
+        微旅行不只是個人的觀察，也是與社區互動的過程。當你走進一家傳統小店，與老闆聊聊他開店的故事，你不僅獲得了資訊，也建立了人際上的溫暖連結。這些交流會讓城市不再只是冷冰冰的建築，而是充滿人情味的空間。
+      </p>
+      <p>
+        一杯手沖咖啡、一次市場閒逛、一次陌生人的問候，都能轉化成旅行的記憶。這種與地方產生情感連結的經驗，會讓人更有歸屬感，也讓我們學會珍惜周遭的環境。
+      </p>
+      <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D" alt="建立在地的連結">
+    </section>
 
-<section>
-  <div id="section1-banner" class="section-banner">土片成形法</div>
-  <div id="section1-content" class="section-content">
-    <div class="center-rect">
-      <h3>土片成形法</h3>
-      <p>土片成形法是將泥土拍平成薄片，再裁切、拼接成各種造型，適合創作平面或箱型陶藝作品。</p>
-    </div>
-    <img src="https://lh5.googleusercontent.com/proxy/U9vL0jZnFy-tvsCdmz3HOT7ZYVMoOwAX4p24SlXMBV_9JxSu7npjwwmPhw7fjvgkfPZXJ2GIZgg5qux-npi8_Fu71JEo3aVd9UkMOs1ki7n-RCY" alt="土片成形法示意圖">
-  </div>
-</section>
+    <!-- 區塊三 -->
+    <section id="part3">
+      <h2>旅行的心靈收穫</h2>
+      <p>
+        城市微旅行的價值，不僅在於看見新的事物，也在於內心的沉澱。當你專注在眼前的細節時，心靈能得到片刻的放鬆與平靜。這是一種讓日常生活與心靈需求結合的方法。
+      </p>
+      <p>
+        有些人透過微旅行獲得靈感，無論是寫作、繪畫或攝影；也有人藉此釋放壓力，讓自己在忙碌的生活裡重新找到平衡。它提醒我們：旅行不必遠方，重要的是「如何看待」所處的環境。
+      </p>
+      <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dHJhdmVsfGVufDB8fDB8fHww" alt="旅行的心靈收穫">
+    </section>
 
-<div class="separator"></div>
-
-<section>
-  <div id="section2-banner" class="section-banner">拉坯法</div>
-  <div id="section2-content" class="section-content">
-    <div class="center-rect">
-      <h3>拉坯法</h3>
-      <p>拉坯法是利用陶輪旋轉，將泥料拉高成型，適合製作圓形器物如杯、碗、瓶等。</p>
-    </div>
-    <img src="https://cdn-smiletaiwan.cw.com.tw/article/202401/article-659b7e8eab7cf.jpg" alt="拉坯法示意圖">
-  </div>
-</section>
-
-<div class="separator"></div>
-
-<section>
-  <div id="section3-banner" class="section-banner">壓模法</div>
-  <div id="section3-content" class="section-content">
-    <div class="center-rect">
-      <h3>壓模法</h3>
-      <p>壓模法是將泥土填入模具內，經壓制成型，適合大量生產或複雜造型作品。</p>
-    </div>
-    <img src="https://lh5.googleusercontent.com/proxy/mcF3C7RA6R-JP2c06iKW_PQOjJU7QeumKb9whYTREj380BpKw4GXjU4B3_sWLVvP2Y6ynljFDYr_26d-gp9C5dFEDtSv6mkAhA" alt="壓模法示意圖">
-  </div>
-</section>
-
-<footer></footer>
-
-<script>
-(function(){
-  const nav = document.getElementById('main-nav');
-  const buttons = nav.querySelectorAll('.nav-btn');
-
-  function scrollToId(id){
-    const target = document.getElementById(id);
-    if(!target) return;
-    const navHeight = nav.offsetHeight;
-    const targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-    const startY = window.pageYOffset;
-    const distance = targetY - startY;
-    const duration = 1000; 
-    let start;
-
-    function step(timestamp){
-      if(!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      window.scrollTo(0, startY + distance * ease);
-      if(progress < 1){
-        requestAnimationFrame(step);
-      }
-    }
-    requestAnimationFrame(step);
-  }
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', e => {
-      const id = btn.getAttribute('data-target');
-      scrollToId(id);
-      document.getElementById('mobile-menu').classList.remove('show');
-    });
-  });
-
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show');
-  });
-})();
-</script>
+    <footer>
+      <!-- 已刪除版權文字 -->
+    </footer>
+  </main>
 </body>
 </html>
