@@ -1,0 +1,115 @@
+/* 介紹區域底圖 - 修正版，完整顯示圖片 */
+#intro {
+    background-image: url('pic5.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;           /* 完整顯示圖片，不裁切 */
+    background-attachment: scroll;      /* 移除 sticky 效果 */
+    position: relative;
+    background-color: #ffffff;         /* 白色背景填充空白區域 */
+    color: black;
+    min-height: 100vh;                 /* 確保最小高度 */
+}
+
+/* 如果圖片還是被切掉，使用這個更保險的版本 */
+#intro {
+    background-image: url('pic5.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 80%;          /* 圖片高度佔容器的80%，確保完整顯示 */
+    background-attachment: scroll;      /* 普通滾動，不sticky */
+    position: relative;
+    background-color: #f8f9fa;         /* 淺灰背景 */
+    color: black;
+    min-height: 100vh;
+    padding: 2rem 0;                   /* 上下留空間 */
+}
+
+/* 確保所有文字元素都是黑色 */
+#intro h1, 
+#intro p, 
+#intro .lead, 
+#intro .fs-5 {
+    color: black !important;
+    text-shadow: none;
+    font-weight: 600;
+}
+
+#intro h1 {
+    color: #2c3e50 !important;
+    margin-top: 2rem;                  /* 標題上方留空間 */
+}
+
+
+/* 第一張圖片 sticky 背景 */
+#section1 > div:first-child {
+    background-image: url('pic1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;  /* 圖片在背景層 */
+}
+
+/* 改良版文字卡片 - 白底、黑字、大字體、靠左 */
+.story-card-improved {
+    background-color: white;           /* 白色底色 */
+    color: black;                      /* 黑色文字 */
+    border-radius: 15px;
+    padding: 2.5rem;                   /* 更大的內距 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+    margin-left: 2rem;                 /* 左邊邊距 */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    max-width: 80%;                    /* 限制寬度，不要太寬 */
+}
+
+.story-card-improved p {
+    font-size: 1.4rem;                 /* 大字體 */
+    line-height: 1.8;                  /* 行距加大 */
+    font-weight: 500;                  /* 字體稍微加粗 */
+    margin: 0;                         /* 移除段落邊距 */
+    color: #2c3e50;                    /* 深灰黑色 */
+}
+
+/* 第二張圖片 sticky 背景 */
+#section2 > div:first-child {
+    background-image: url('pic2.png');  /* 請替換為您的第二張圖片路徑 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 第二張圖的文字內容樣式 */
+.story-content {
+    background-color: rgba(248, 249, 250, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    position: relative;
+    z-index: 10;  /* 確保文字在圖片上方 */
+}
+
+.story-content p {
+    color: #2c3e50;
+    line-height: 1.7;
+    margin-bottom: 0;
+    font-size: 1.3rem;  /* 調整文字大小 */
+    font-weight: 500;
+}
+
+/*  */
+#section3 > div:first-child {
+    background-image: url('pic3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#section4 > div:first-child {
+    background-image: url('pic4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
