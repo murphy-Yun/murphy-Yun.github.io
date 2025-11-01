@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣故事集 - 杭菊花海與雜貨店</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== Trial.html 的樣式 ===== */
+        .hero-bg {
+            background-image: url('as7-1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .title-box {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        
+        /* 結尾區塊樣式 */
+        .ending-section {
+            background-image: url('as7-3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 2;
+        }
+        .ending-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .ending-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== Trial2.html 的樣式 ===== */
+        /* 首頁區塊 */
+        .hero-section {
+            background-image: url('as7-12.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .title-box2 {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .title-box2 h1 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* 滾動圖片區塊 */
+        #scroll-container {
+            height: 300vh;
+        }
+
+        #outer {
+            background-image: url('as7-10.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        #statusbar {
+            width: 0;
+            background-image: url('as7-11.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: width 0.1s ease;
+        }
+
+        /* 結尾區塊樣式 */
+        .ending-section2 {
+            background-image: url('as7-13.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .ending-section2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .ending-content2 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ending-title-box {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .ending-title-box h2 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .ending-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== Trial.html 的內容 ===== -->
+<!-- 前言區塊 -->
+<div class="vh-100 hero-bg d-flex align-items-center justify-content-center">
+    <div class="container hero-content">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="title-box">
+                    <h1 class="display-4 mb-0">苗栗銅鑼杭菊花海</h1>
+                </div>
+                <p class="mb-4 text-white">
+                    每年苗栗縣銅鑼鄉總會落下兩次白雪，一是春季的油桐花雪，二是綻放於秋末冬初的杭菊花雪。金黃與雪白的杭菊鋪滿山坡，是遊客爭相拍照的花海，也是農民一年辛勤的成果。
+                </p>
+                <p class="mb-4 text-white">
+                    這些花，不只是季節的風景，更是時間的刻度。從春天的整地、夏天的護苗，到秋天的採收與冬天的曬菊，農人與土地共同寫下十二個月的循環。
+                </p>
+                <p class="mb-0 text-white">
+                    台灣的杭菊栽培歷史超過半世紀，從早期中藥需求到如今結合觀光與文化，這朵花在季節與時代中，悄悄變成了地方的象徵。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 滾動圖片效果區塊 -->
+<div id="hangju-scroll-gallery"></div>
+
+<!-- 結尾區塊 -->
+<div class="vh-100 ending-section d-flex align-items-center justify-content-center">
+    <div class="container ending-content">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center text-white">
+                <h2 class="display-5 mb-4">四季更迭，花開花落</h2>
+                <p class="lead mb-4">
+                    當最後一籃烘乾的菊花被封袋裝箱，農民的手也暫時得以歇息。
+                </p>
+                <p class="mb-4">
+                    然而杭菊的故事並未結束——它在茶杯裡延續，在旅人的相機裡盛放，也在地方經濟與氣候挑戰間尋找新的出路。
+                </p>
+                <p class="mb-4">
+                    一年四季的循環，不只是農作節奏，更是土地與人之間的默契。
+                </p>
+                <p class="mb-0">
+                    在這樣的金黃與雪白之間，我們看到的不只是花開花謝，而是台灣農業韌性與文化根脈的延續。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== Trial2.html 的內容 ===== -->
+<!-- 首頁區塊 -->
+<div class="hero-section d-flex align-items-center justify-content-center" style="height:100vh;">
+    <div class="container hero-content">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="title-box2">
+                    <h1 class="display-3 mb-4">台灣雜貨店</h1>
+                    <div class="content-text">
+                        <p class="mb-4">
+                            台灣的雜貨店，是許多人童年的縮影。木門上掛著布簾、玻璃罐裡裝著糖果、冰箱裡有彈珠汽水與冰棒。這些店多半開在街角或巷口，從清晨賣到傍晚，既是鄰里的補給站，也是消息交流的據點。
+                        </p>
+                        <p class="mb-0">
+                            隨著超商興起，傳統雜貨店的身影逐漸稀少，但仍有老闆堅持守著櫃台，用人情味和時間交換顧客的信任。它們見證了社區的變遷，也保存了台灣庶民生活的味道。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 滾動圖片區塊 -->
+<div id="scroll-container" style="height:300vh">
+    <div id="outer" class="sticky-top">
+        <div id="statusbar" style="height:100vh"></div>
+    </div>
+</div>
+
+<!-- 結尾區塊 -->
+<div class="vh-100 ending-section2 d-flex align-items-center justify-content-center">
+    <div class="container ending-content2">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="ending-title-box">
+                    <h2 class="display-4 mb-4">街頭速寫</h2>
+                    <div class="ending-text">
+                        <p class="mb-4">
+                            街頭速寫，是用眼睛記錄城市呼吸的方式。畫者帶著筆和本子，在街角、騎樓或市場邊落坐，捕捉瞬間的光影與人流。筆觸未必精細，卻真實呈現當下的節奏——機車呼嘯、招牌閃爍、行人擦肩。
+                        </p>
+                        <p class="mb-0">
+                            透過速寫，平凡的街景被轉化為一種觀察的練習，也是一種與城市對話的藝術。它讓人重新發現熟悉的風景，從速寫的線條裡看見生活的溫度。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Trial.html 的腳本 -->
+<script>
+    (function() {
+        var namespace = '__twreporterEmbeddedData'
+        var packageName = 'scrollable-image'
+        if (typeof window != 'undefined') {
+            if (!window[namespace]) {
+                window[namespace] = {}
+            }
+            if (window[namespace] && !window[namespace][packageName]) {
+                window[namespace][packageName] = []
+            }
+        }
+        if (Array.isArray(window[namespace][packageName])) {
+            var data = {
+                "uuid": "hangju-scroll-gallery",
+                "lazyload": true,
+                "data": [
+                    "as7-4.png",
+                    "as7-5.png",
+                    "as7-6.png",
+                    "as7-7.png"
+                ],
+                "skipLoadLocationRegExp": "editor"
+            }
+            window[namespace][packageName].push(data)
+        }
+    })()
+</script>
+
+<script type="text/javascript" src="https://unpkg.com/@twreporter/scrollable-image@1.3.1/dist/main-1f135a15f5704958e631.bundle.js"></script>
+
+<!-- Trial2.html 的腳本 - 修正版 -->
+<script>
+    $(document).ready(function () {
+        // 等待頁面完全載入後初始化
+        setTimeout(function() {
+            var $scrollContainer = $('#scroll-container');
+            var scrollContainerTop = $scrollContainer.offset().top;
+            var scrollContainerHeight = $scrollContainer.height() - $(window).height();
+            var win_w = $(window).width();
+
+            $(window).scroll(function () {
+                var scrolled = $(window).scrollTop();
+                
+                // 檢查是否在滾動容器範圍內
+                if (scrolled >= scrollContainerTop && scrolled <= scrollContainerTop + scrollContainerHeight) {
+                    // 計算在容器內的相對滾動位置 (0-1)
+                    var relativeScroll = (scrolled - scrollContainerTop) / scrollContainerHeight;
+                    var new_width = win_w * relativeScroll;
+                    
+                    $("#statusbar").css({
+                        width: new_width + 'px'
+                    });
+                } else if (scrolled < scrollContainerTop) {
+                    // 還沒滾動到容器，寬度為 0
+                    $("#statusbar").css({
+                        width: '0px'
+                    });
+                } else {
+                    // 滾動超過容器，寬度為滿版
+                    $("#statusbar").css({
+                        width: win_w + 'px'
+                    });
+                }
+            });
+
+            // 視窗大小改變時重新計算
+            $(window).resize(function() {
+                win_w = $(window).width();
+                scrollContainerTop = $scrollContainer.offset().top;
+                scrollContainerHeight = $scrollContainer.height() - $(window).height();
+            });
+        }, 100);
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
