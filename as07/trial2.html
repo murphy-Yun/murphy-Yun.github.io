@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣雜貨店</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 首頁區塊 */
+        .hero-section {
+            background-image: url('as7-12.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .title-box {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .title-box h1 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* 滾動圖片區塊 */
+        #outer {
+            background-image: url('as7-10.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        #statusbar {
+            width: 0;
+            background-image: url('as7-11.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: width 0.1s ease;
+        }
+
+        /* 結尾區塊 */
+        .ending-section {
+            background-image: url('as7-13.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .ending-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .ending-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ending-title-box {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .ending-title-box h2 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .ending-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 首頁區塊 -->
+<div class="hero-section d-flex align-items-center justify-content-center" style="height:100vh;">
+    <div class="container hero-content">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="title-box">
+                    <h1 class="display-3 mb-4">台灣雜貨店</h1>
+                    <div class="content-text">
+                        <p class="mb-4">
+                            台灣的雜貨店，是許多人童年的縮影。木門上掛著布簾、玻璃罐裡裝著糖果、冰箱裡有彈珠汽水與冰棒。這些店多半開在街角或巷口，從清晨賣到傍晚，既是鄰里的補給站，也是消息交流的據點。
+                        </p>
+                        <p class="mb-0">
+                            隨著超商興起，傳統雜貨店的身影逐漸稀少，但仍有老闆堅持守著櫃台，用人情味和時間交換顧客的信任。它們見證了社區的變遷，也保存了台灣庶民生活的味道。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 滾動圖片區塊 -->
+<div style="height:300vh">
+    <div id="outer" class="sticky-top">
+        <div id="statusbar" style="height:100vh"></div>
+    </div>
+</div>
+
+<!-- 結尾區塊 -->
+<div class="vh-100 ending-section d-flex align-items-center justify-content-center">
+    <div class="container ending-content">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="ending-title-box">
+                    <h2 class="display-4 mb-4">雜貨店街頭速寫</h2>
+                    <div class="ending-text">
+                        <p class="mb-4">
+                            街頭速寫，是用眼睛記錄城市呼吸的方式。畫者帶著筆和本子，在街角、騎樓或市場邊落坐，捕捉瞬間的光影與人流。筆觸未必精細，卻真實呈現當下的節奏——機車呼嘯、招牌閃爍、行人擦肩。
+                        </p>
+                        <p class="mb-0">
+                            透過速寫，平凡的街景被轉化為一種觀察的練習，也是一種與城市對話的藝術。它讓人重新發現熟悉的風景，從速寫的線條裡看見生活的溫度。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var max_scroll = $(document).height() - $(window).height();
+        var win_w = $(window).width();
+
+        $(window).scroll(function () {
+            var scrolled = $(window).scrollTop();
+            var new_width = (win_w * scrolled) / max_scroll;
+            $("#statusbar").css({
+                width: new_width
+            });
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
