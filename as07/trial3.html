@@ -113,11 +113,7 @@
             color: #555;
         }
 
-        /* 滾動圖片區塊 */
-        #scroll-container {
-            height: 300vh;
-        }
-
+        /* 滾動圖片區塊 - 修正版 */
         #outer {
             background-image: url('as7-10.jpg');
             background-size: cover;
@@ -254,8 +250,8 @@
     </div>
 </div>
 
-<!-- 滾動圖片區塊 -->
-<div id="scroll-container" style="height:300vh">
+<!-- 滾動圖片區塊 - 完全照 trial2 的寫法 -->
+<div style="height:300vh">
     <div id="outer" class="sticky-top">
         <div id="statusbar" style="height:100vh"></div>
     </div>
@@ -314,48 +310,33 @@
 
 <script type="text/javascript" src="https://unpkg.com/@twreporter/scrollable-image@1.3.1/dist/main-1f135a15f5704958e631.bundle.js"></script>
 
-<!-- Trial2.html 的腳本 - 修正版 -->
+<!-- Trial2.html 的腳本 - 簡化版，基於整個滾動區塊 -->
 <script>
     $(document).ready(function () {
-        // 等待頁面完全載入後初始化
-        setTimeout(function() {
-            var $scrollContainer = $('#scroll-container');
-            var scrollContainerTop = $scrollContainer.offset().top;
-            var scrollContainerHeight = $scrollContainer.height() - $(window).height();
-            var win_w = $(window).width();
-
-            $(window).scroll(function () {
-                var scrolled = $(window).scrollTop();
+        var win_w = $(window).width();
+        
+        // 找到滾動區塊 (300vh 的那個 div)
+        var $scrollSection = $('div[style="height:300vh"]');
+        
+        $(window).scroll(function () {
+            var scrolled = $(window).scrollTop();
+            var sectionTop = $scrollSection.offset().top;
+            var sectionHeight = $scrollSection.height();
+            
+            // 只在該區塊內計算
+            if (scrolled >= sectionTop && scrolled <= sectionTop + sectionHeight) {
+                var relativeScroll = (scrolled - sectionTop) / (sectionHeight - $(window).height());
+                var new_width = Math.min(win_w * relativeScroll, win_w);
                 
-                // 檢查是否在滾動容器範圍內
-                if (scrolled >= scrollContainerTop && scrolled <= scrollContainerTop + scrollContainerHeight) {
-                    // 計算在容器內的相對滾動位置 (0-1)
-                    var relativeScroll = (scrolled - scrollContainerTop) / scrollContainerHeight;
-                    var new_width = win_w * relativeScroll;
-                    
-                    $("#statusbar").css({
-                        width: new_width + 'px'
-                    });
-                } else if (scrolled < scrollContainerTop) {
-                    // 還沒滾動到容器，寬度為 0
-                    $("#statusbar").css({
-                        width: '0px'
-                    });
-                } else {
-                    // 滾動超過容器，寬度為滿版
-                    $("#statusbar").css({
-                        width: win_w + 'px'
-                    });
-                }
-            });
-
-            // 視窗大小改變時重新計算
-            $(window).resize(function() {
-                win_w = $(window).width();
-                scrollContainerTop = $scrollContainer.offset().top;
-                scrollContainerHeight = $scrollContainer.height() - $(window).height();
-            });
-        }, 100);
+                $("#statusbar").css({
+                    width: new_width + 'px'
+                });
+            }
+        });
+        
+        $(window).resize(function() {
+            win_w = $(window).width();
+        });
     });
 </script>
 
