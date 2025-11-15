@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>視頻滾動互動網頁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* 第一個區塊 - 淡黃色背景 */
+        .hero-section {
+            height: 100vh;
+            background-color: #fff9c4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 第二個區塊 - 左右分割 */
+        .split-section {
+            height: 250vh; /* 2.5倍視窗高度讓用戶滾動更久 */
+            background-color: white;
+            display: flex;
+        }
+
+        .left-half {
+            width: 50%;
+            position: relative;
+        }
+
+        .video-grid {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .video-item {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .right-half {
+            width: 50%;
+            padding: 100px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* 視頻背景區塊樣式 - 修改版 */
+        .video-text-section {
+            height: 300vh; /* 增加高度讓文字有更多滾動空間 */
+            position: relative;
+            display: flex;
+        }
+
+        .video-background {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 可滾動文字區域 - 覆蓋在影片上 */
+        .scrollable-text-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 10vh 0; /* 上下留出 10vh 的空間 */
+            z-index: 2;
+        }
+
+        .text-overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 60px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            margin: 20vh 0; /* 上下再額外留出空間 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-overlay p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .split-section {
+                flex-direction: column;
+                height: 400vh;
+            }
+
+            .left-half,
+            .right-half {
+                width: 100%;
+            }
+
+            .right-half {
+                padding: 50px 20px;
+            }
+
+            .video-text-section {
+                height: 400vh;
+            }
+
+            .scrollable-text-container {
+                padding: 5vh 0;
+            }
+
+            .text-overlay {
+                padding: 40px 20px;
+                margin: 10vh 0;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 第一個區塊：淡黃色背景 + 大標題 -->
+    <section class="hero-section">
+        <h1 class="hero-title">Video Storytelling Practice</h1>
+    </section>
+
+    <!-- 第二個區塊：左右分割，左側四格影片，右側文字 -->
+    <section class="split-section">
+        <div class="left-half">
+            <div class="video-grid">
+                <div class="video-item">
+                    <video autoplay muted loop>
+                        <source src="video1.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片播放
+                    </video>
+                </div>
+                <div class="video-item">
+                    <video autoplay muted loop>
+                        <source src="video2.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片播放
+                    </video>
+                </div>
+                <div class="video-item">
+                    <video autoplay muted loop>
+                        <source src="video3.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片播放
+                    </video>
+                </div>
+                <div class="video-item">
+                    <video autoplay muted loop>
+                        <source src="video4.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片播放
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="right-half">
+            <div class="content-text">
+                <h2>About this project</h2>
+                <p>This project experiments with scroll-driven storytelling using short documentary clips. The left panel presents four video tiles in a 2x2 grid, kept visible via a sticky container as the user scrolls the right-hand text area which is 200vh tall. The aim is to let the viewer read contextual information while the video grid provides ambient visual narrative cues.</p>
+                
+                <p>Design notes: videos are muted by default to allow autoplay in most browsers. They loop to provide continuous motion. The text area provides deeper context, including credits, sources, and editorial notes.</p>
+                
+                <p>Credits: video clips from public news footage used for demo purposes.</p>
+                
+                <p>Interaction: you can scroll the right column to read. The left grid remains sticky and centered vertically within the viewport.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三個區塊：背景影片 + 可滾動文字覆蓋 -->
+    <section class="video-text-section">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="video5.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放
+            </video>
+        </div>
+        <div class="scrollable-text-container">
+            <div class="text-overlay">
+                <p>Visual storytelling has evolved beyond traditional cinema into immersive digital experiences. Through the careful orchestration of moving images and scrolling interactions, we create a new form of narrative that unfolds at the viewer's pace.</p>
+                <p>This approach allows audiences to become active participants in the story, choosing when to pause, reflect, or continue. The combination of video backgrounds with overlapping text creates layers of meaning that can be discovered through exploration.</p>
+                <p>Each frame serves as both content and context, where the moving image provides emotional resonance while the text adds depth and interpretation. This multimedia approach transforms passive viewing into an engaging dialogue between creator and audience.</p>
+                <p>The result is a hybrid medium that bridges the gap between film, web design, and interactive art, creating experiences that are both cinematic and participatory.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第四個區塊：背景影片 + 可滾動文字覆蓋 -->
+    <section class="video-text-section">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="video4.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放
+            </video>
+        </div>
+        <div class="scrollable-text-container">
+            <div class="text-overlay">
+                <p>Modern web experiences demand more than static presentations. Interactive design principles guide us toward creating meaningful connections between content and user behavior. Scroll-triggered animations and video backgrounds respond to user actions, making each interaction feel intentional and rewarding.</p>
+                <p>The sticky positioning of visual elements creates a sense of continuity while allowing textual content to flow naturally. This technique helps maintain visual interest while ensuring that important information remains accessible throughout the scrolling experience.</p>
+                <p>Responsive design considerations ensure that these interactions work seamlessly across different devices and screen sizes. Mobile users receive optimized layouts that preserve the core experience while adapting to touch-based navigation patterns.</p>
+                <p>Performance optimization becomes crucial when dealing with video content and complex layouts. Careful attention to loading strategies and resource management ensures smooth experiences regardless of connection speed or device capabilities.</p>
+                <p>The goal is to create digital experiences that feel natural and intuitive, where technology serves the content rather than overwhelming it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第五個區塊：背景影片 + 可滾動文字覆蓋 -->
+    <section class="video-text-section">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="video3.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放
+            </video>
+        </div>
+        <div class="scrollable-text-container">
+            <div class="text-overlay">
+                <p>Digital storytelling represents a fundamental shift in how narratives are constructed and consumed. Unlike linear media, digital stories can branch, adapt, and respond to audience engagement in real-time. This creates opportunities for personalized experiences that traditional media cannot match.</p>
+                <p>The integration of multiple media types—video, text, audio, and interactive elements—allows for richer, more nuanced storytelling. Each element contributes to the overall narrative while maintaining its own expressive power.</p>
+                <p>Accessibility considerations ensure that these stories reach the widest possible audience. Alternative text for images, captions for videos, and keyboard navigation support make content available to users with diverse needs and preferences.</p>
+                <p>Cultural sensitivity and inclusive design principles guide the creation of content that resonates across different communities and contexts. Global audiences bring diverse perspectives that enrich the storytelling experience for everyone.</p>
+                <p>The democratization of digital tools means that anyone can become a storyteller, leading to a proliferation of unique voices and perspectives in the digital landscape.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第六個區塊：背景影片 + 可滾動文字覆蓋 -->
+    <section class="video-text-section">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="video2.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放
+            </video>
+        </div>
+        <div class="scrollable-text-container">
+            <div class="text-overlay">
+                <p>The future of web-based storytelling holds immense promise as new technologies continue to emerge. Virtual and augmented reality integration will create even more immersive experiences, while artificial intelligence will enable adaptive content that responds to individual user preferences and behaviors.</p>
+                <p>Sustainability considerations are becoming increasingly important in digital design. Optimizing for energy efficiency and reducing data transfer requirements help minimize the environmental impact of digital experiences while maintaining high-quality user experiences.</p>
+                <p>Cross-platform compatibility ensures that stories can be experienced consistently across different devices and platforms. Progressive web technologies bridge the gap between native applications and web experiences, offering the best of both worlds.</p>
+                <p>Community-driven content creation platforms are enabling collaborative storytelling where multiple contributors can add to and modify narratives over time. This participatory approach to content creation reflects broader trends toward user-generated and community-curated experiences.</p>
+                <p>As technology continues to evolve, the fundamental principles of good storytelling—compelling characters, engaging conflicts, and meaningful resolutions—remain constant guides in creating memorable digital experiences.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
